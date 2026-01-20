@@ -17,6 +17,7 @@
 #define FUN 4
 #define DAN 5
 #define LCK 6
+#define MAC 7
 
 &caps_word {
    continue-list = <UNDERSCORE MINUS BACKSPACE>;
@@ -115,7 +116,7 @@
    &none &kp F4 &kp F5 &kp F6 &kp F10 &none &kp C_PREV &kp C_PP &kp C_NEXT &none
    &kp CAPS &kp F1   &kp F2 &kp F3 &kp F11 &bt BT_SEL 2 &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &none
    &mo DAN &kp F7 &kp F8 &kp F9  &kp F12 &bt BT_SEL 0  &bt BT_SEL 1 &kp C_BRI_DN &kp C_BRI_UP &trans
-                         &none &trans &trans &none 
+                         &to CMK &trans &trans &to MAC 
                         >;
                 };
                 danger_layer {
@@ -137,11 +138,26 @@
                     // only way out is the lock combo
                     // other combos are disabled too
                     bindings = <
-&none &none &none &none &none &none &none &none &none &none 
-&none &none &none &none &none &none &none &none &none &none 
-&none &none &none &none &none &none &none &none &none &none 
-&none &none &none &none 
+&none &none &none &none &none &none &none &none &none &none
+&none &none &none &none &none &none &none &none &none &none
+&none &none &none &none &none &none &none &none &none &none
+&none &none &none &none
                     >;
+                };
+                mac_layer {
+// macOS base layer - identical to colemak_layer
+// Combos behave differently: Ctrl combo sends Cmd, Cmd combo sends Ctrl
+// -----------------------------------------------------------------
+// |  Q  |  W  |  F  |  P  |  B  | |  J  |  L  |  U  |  Y  |     |
+// |  A  |  R  |  S  |  T  |  G  | |  M  |  N  |  E  |  I  |  O  |
+// |  Z  |  X  |  C  |  D  |  V  | |  K  |  H  |  ,  |  .  |-FUN-|
+//                   |-SYM-| SPC | | RET |-NUM-|
+                        bindings = <
+   &kp Q &kp W &kp F &kp P &kp B &kp J &kp L   &kp U     &kp Y   &none
+   &kp A &kp R &kp S &kp T &kp G &kp M &kp N   &kp E     &kp I   &kp O
+   &kp Z &kp X &kp C &kp D &kp V &kp K &kp H   &kp COMMA &kp DOT &mo FUN
+                   &mo SYM &kp SPACE &kp RET &mo NUM
+                        >;
                 };
         };
 };
