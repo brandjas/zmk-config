@@ -3,9 +3,9 @@
 compatible = "zmk,combos";
 #define LONG_TIMEOUT_MS 100
 #define WIN_BASE 0
-#define MAC_BASE 7
-#define NORMAL_LAYERS 0 1 2 3 4 5 7
-#define LOCK_LAYER 6
+#define MAC_BASE 1
+#define NORMAL_LAYERS 0 1 2 3 4 5 6
+#define LOCK_LAYER 7
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \

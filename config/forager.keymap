@@ -11,13 +11,13 @@
 #include <dt-bindings/zmk/outputs.h>
  
 #define CMK 0
-#define SYM 1
-#define NUM 2
-#define NAV 3
-#define FUN 4
-#define DAN 5
-#define LCK 6
-#define MAC 7
+#define MAC 1
+#define SYM 2
+#define NUM 3
+#define NAV 4
+#define FUN 5
+#define DAN 6
+#define LCK 7
 
 &caps_word {
    continue-list = <UNDERSCORE MINUS BACKSPACE>;
@@ -55,6 +55,21 @@
         keymap {
                 compatible = "zmk,keymap";
                 colemak_layer {
+// -----------------------------------------------------------------
+// |  Q  |  W  |  F  |  P  |  B  | |  J  |  L  |  U  |  Y  |     |
+// |  A  |  R  |  S  |  T  |  G  | |  M  |  N  |  E  |  I  |  O  |
+// |  Z  |  X  |  C  |  D  |  V  | |  K  |  H  |  ,  |  .  |-FUN-|
+//                   |-SYM-| SPC | | RET |-NUM-|
+                        bindings = <
+   &kp Q &kp W &kp F &kp P &kp B &kp J &kp L   &kp U     &kp Y   &none
+   &kp A &kp R &kp S &kp T &kp G &kp M &kp N   &kp E     &kp I   &kp O
+   &kp Z &kp X &kp C &kp D &kp V &kp K &kp H   &kp COMMA &kp DOT &mo FUN
+                   &mo SYM &kp SPACE &kp RET &mo NUM
+                        >;
+                };
+                mac_layer {
+// macOS base layer - identical to colemak_layer
+// Combos behave differently: Ctrl combo sends Cmd, Cmd combo sends Ctrl
 // -----------------------------------------------------------------
 // |  Q  |  W  |  F  |  P  |  B  | |  J  |  L  |  U  |  Y  |     |
 // |  A  |  R  |  S  |  T  |  G  | |  M  |  N  |  E  |  I  |  O  |
@@ -143,21 +158,6 @@
 &none &none &none &none &none &none &none &none &none &none
 &none &none &none &none
                     >;
-                };
-                mac_layer {
-// macOS base layer - identical to colemak_layer
-// Combos behave differently: Ctrl combo sends Cmd, Cmd combo sends Ctrl
-// -----------------------------------------------------------------
-// |  Q  |  W  |  F  |  P  |  B  | |  J  |  L  |  U  |  Y  |     |
-// |  A  |  R  |  S  |  T  |  G  | |  M  |  N  |  E  |  I  |  O  |
-// |  Z  |  X  |  C  |  D  |  V  | |  K  |  H  |  ,  |  .  |-FUN-|
-//                   |-SYM-| SPC | | RET |-NUM-|
-                        bindings = <
-   &kp Q &kp W &kp F &kp P &kp B &kp J &kp L   &kp U     &kp Y   &none
-   &kp A &kp R &kp S &kp T &kp G &kp M &kp N   &kp E     &kp I   &kp O
-   &kp Z &kp X &kp C &kp D &kp V &kp K &kp H   &kp COMMA &kp DOT &mo FUN
-                   &mo SYM &kp SPACE &kp RET &mo NUM
-                        >;
                 };
         };
 };
