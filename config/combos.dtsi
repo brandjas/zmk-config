@@ -42,13 +42,13 @@ COMBO(shift, &skq LSHFT, 7 8)
 COMBO(backspace, &kp BSPC, 27 28)
 COMBO(opt, &sk LALT, 32 33)
 
-// Windows mode - Ctrl combo is primary (sticky), Cmd combo is secondary
-LAYER_COMBO(ctrl_win, &sk LCTRL, 30 31, WIN_BASE)
-LAYER_COMBO(cmd_win, &kp LGUI, 21 22, WIN_BASE)
+// Windows mode
+LAYER_COMBO(sticky_ctrl, &skq LCTRL, 30 31, WIN_BASE)
+LAYER_COMBO(gui, &kp LGUI, 21 22, WIN_BASE)
 
-// macOS mode - Ctrl combo sends Cmd (sticky), Cmd combo sends Ctrl
-LAYER_COMBO(ctrl_mac, &skq LGUI, 30 31, MAC_BASE)
-LAYER_COMBO(cmd_mac, &kp LCTRL, 21 22, MAC_BASE)
+// macOS mode
+LAYER_COMBO(sticky_cmd, &skq LGUI, 30 31, MAC_BASE)
+LAYER_COMBO(sticky_ctrl_mac, &skq LCTRL, 21 22, MAC_BASE)
 COMBO(q, &kp Q, 1 3)
 COMBO(z, &kp Z, 21 23)
 COMBO_LONG(capsword, &caps_word, 14 15)
