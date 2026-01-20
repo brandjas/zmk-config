@@ -47,7 +47,7 @@ LAYER_COMBO(ctrl_win, &sk LCTRL, 30 31, WIN_BASE)
 LAYER_COMBO(cmd_win, &kp LGUI, 21 22, WIN_BASE)
 
 // macOS mode - Ctrl combo sends Cmd (sticky), Cmd combo sends Ctrl
-LAYER_COMBO(ctrl_mac, &sk LGUI, 30 31, MAC_BASE)
+LAYER_COMBO(ctrl_mac, &skq LGUI, 30 31, MAC_BASE)
 LAYER_COMBO(cmd_mac, &kp LCTRL, 21 22, MAC_BASE)
 COMBO(q, &kp Q, 1 3)
 COMBO(z, &kp Z, 21 23)
