@@ -59,6 +59,8 @@ west build -d build/dongle -s zmk/app -p -b xiao_ble -- \
 
 ## Keymap
 
+![Forager keymap](keymap-drawer/forager.svg)
+
 The keymap (`config/forager.keymap`) has 8 layers:
 
 | Layer | Name | Purpose |

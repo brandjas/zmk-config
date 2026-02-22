@@ -14,4 +14,8 @@ west update
 echo "Exporting Zephyr CMake package..."
 west zephyr-export
 
+echo "Installing pre-commit..."
+uv tool install pre-commit --with pre-commit-uv --force
+pre-commit install --install-hooks
+
 echo "Workspace ready! Run .devcontainer/build.sh to build firmware."

@@ -1,0 +1,18 @@
+repos:
+  - repo: local
+    hooks:
+      - id: keymap-parse
+        name: Parse ZMK keymap to YAML
+        entry: keymap parse -z config/forager.keymap -o keymap-drawer/forager.yaml --columns 10
+        language: python
+        additional_dependencies: ['keymap-drawer']
+        files: '(config/forager\.keymap|config/combos\.dtsi)$'
+        pass_filenames: false
+
+      - id: keymap-draw
+        name: Draw keymap SVG
+        entry: keymap draw keymap-drawer/forager.yaml -o keymap-drawer/forager.svg
+        language: python
+        additional_dependencies: ['keymap-drawer']
+        files: '(config/forager\.keymap|config/combos\.dtsi|keymap-drawer/forager\.yaml)$'
+        pass_filenames: false
