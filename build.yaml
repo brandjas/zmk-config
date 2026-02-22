@@ -19,8 +19,19 @@
 #
 ---
 include:
+  # Standalone (left-as-central)
   - board: xiao_ble
     shield: forager_left rgbled_adapter
     snippet: studio-rpc-usb-uart
   - board: xiao_ble
     shield: forager_right rgbled_adapter
+
+  # Dongle mode
+  - board: xiao_ble
+    shield: forager_dongle rgbled_adapter
+    snippet: studio-rpc-usb-uart
+    artifact-name: forager_dongle
+  - board: xiao_ble
+    shield: forager_left rgbled_adapter
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: forager_left_dongle

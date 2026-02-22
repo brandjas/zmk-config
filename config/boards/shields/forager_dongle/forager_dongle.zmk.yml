@@ -1,0 +1,12 @@
+file_format: "1"
+id: forager_dongle
+name: Forager Dongle
+type: shield
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - studio
+siblings:
+  - forager_dongle
+  - forager_left
+  - forager_right
