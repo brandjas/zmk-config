@@ -1,0 +1,35 @@
+{
+  "name": "ZMK Firmware",
+  "dockerFile": "Dockerfile",
+  "workspaceFolder": "/workspaces/zmk-config",
+  "runArgs": ["--security-opt", "label=disable"],
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "configureZshAsDefaultShell": true,
+      "upgradePackages": false
+    }
+  },
+  "remoteUser": "ubuntu",
+  "mounts": [
+    "type=volume,source=zmk-zmk,target=/workspaces/zmk-config/zmk",
+    "type=volume,source=zmk-zephyr,target=/workspaces/zmk-config/zephyr",
+    "type=volume,source=zmk-modules,target=/workspaces/zmk-config/modules",
+    "type=volume,source=zmk-tools,target=/workspaces/zmk-config/tools",
+    "type=volume,source=zmk-bootloader,target=/workspaces/zmk-config/bootloader",
+    "type=volume,source=zmk-forager-module,target=/workspaces/zmk-config/forager-zmk-module",
+    "type=volume,source=zmk-rgbled-widget,target=/workspaces/zmk-config/zmk-rgbled-widget",
+    "type=volume,source=zmk-optional,target=/workspaces/zmk-config/optional",
+    "source=${localEnv:HOME}/.claude,target=/home/ubuntu/.claude,type=bind",
+    "source=${localEnv:HOME}/.claude.json,target=/home/ubuntu/.claude.json,type=bind",
+    "source=zmk-zshhistory,target=/commandhistory,type=volume"
+  ],
+  "postCreateCommand": ".devcontainer/setup.sh && echo 'export HISTFILE=/commandhistory/.zsh_history' >> ~/.zshrc",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools", "spadin.zmk-tools"]
+    }
+  }
+}

@@ -1,2 +1,18 @@
 
 .zmk/
+
+# West workspace (created by devcontainer setup)
+.west/
+build/
+
+# West-managed dependencies
+bootloader/
+modules/
+optional/
+tools/
+zephyr/
+zmk/
+zmk-rgbled-widget/
+
+# Build artifacts
+firmware/
