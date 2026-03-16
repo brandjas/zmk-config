@@ -70,7 +70,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: mac, h: toggle}
   danger:
-  - ['', '', '', '', '', BT CLR, OUT BLE, OUT USB, '&sys_reset', '']
+  - ['', '', '', '', '&soft_off', BT CLR, OUT BLE, OUT USB, '&sys_reset', '']
   - ['', '', '', '', '', '', '', '', '', '&bootloader']
   - - {type: held}
     - ''
